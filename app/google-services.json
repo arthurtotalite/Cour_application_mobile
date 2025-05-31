@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "864972166022",
+    "project_id": "project-nature-collection",
+    "storage_bucket": "project-nature-collection.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864972166022:android:d25d72bc5d55d3f3771207",
+        "android_client_info": {
+          "package_name": "fr.arthur_total.naturecollection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2oT6t5lLqTLVfF6rTcP8gKEaxt-SaR-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
