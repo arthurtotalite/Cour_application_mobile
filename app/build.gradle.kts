@@ -3,14 +3,15 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
 
+
 }
 
 android {
-    namespace = "fr.arthur_total.naturecollection"
+    namespace = "fr.arthur_total.openlibrary"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "fr.arthur_total.naturecollection"
+        applicationId = "fr.arthur_total.openlibrary"
         minSdk = 27
         targetSdk = 35
         versionCode = 1

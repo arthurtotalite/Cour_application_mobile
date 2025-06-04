@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection.fragments
+package fr.arthur_total.openlibrary.fragments
 
 import android.app.Activity
 import android.os.Bundle
@@ -12,15 +12,15 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
-import fr.arthur_total.naturecollection.MainActivity
-import fr.arthur_total.naturecollection.PlantModel
-import fr.arthur_total.naturecollection.PlantRepository
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.downloadUri
-import fr.arthur_total.naturecollection.R
+import fr.arthur_total.openlibrary.BookModel
+import fr.arthur_total.openlibrary.MainActivity
+import fr.arthur_total.openlibrary.BookRepository
+import fr.arthur_total.openlibrary.BookRepository.Singleton.downloadUri
+import fr.arthur_total.openlibrary.R
 import java.util.UUID
 
 
-class AddPlantFragment(
+class AddBookFragment(
     private val context: MainActivity
 ) : Fragment() {
 
@@ -32,7 +32,7 @@ class AddPlantFragment(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater?.inflate(R.layout.fragment_add_plant, container, false)
+        val view = inflater?.inflate(R.layout.fragment_add_book, container, false)
 
         // recuperer uploadedImage pour lui associé son composant
         uploadedImage = view?.findViewById(R.id.preview_image)
@@ -52,26 +52,26 @@ class AddPlantFragment(
     }
 
     private fun sendform(view: View) {
-        val repo = PlantRepository()
+        val repo = BookRepository()
         repo.uploadImage(file!!) {
-            val plantName = view.findViewById<EditText>(R.id.name_input).text.toString()
-            val plantDescription = view.findViewById<EditText>(R.id.description_input).text.toString()
-            val grow = view.findViewById<Spinner>(R.id.grow_spinner).selectedItem.toString()
-            val water = view.findViewById<Spinner>(R.id.water_spinner).selectedItem.toString()
+            val bookName = view.findViewById<EditText>(R.id.name_input).text.toString()
+            val bookSummary = view.findViewById<EditText>(R.id.summary_input).text.toString()
+            val bookAuthor = view.findViewById<EditText>(R.id.author_input).text.toString()
+            val type = view.findViewById<Spinner>(R.id.type_spinner).selectedItem.toString()
             val downloadImageUrl = downloadUri
 
-            // créer un nouvle objet PlantModel
-            val plant = PlantModel(
+            // créer un nouvle objet BookModel
+            val book = BookModel(
                 UUID.randomUUID().toString(),
-                plantName,
-                plantDescription,
+                bookName,
+                bookSummary,
                 downloadImageUrl.toString(),
-                grow,
-                water
+                type,
+                bookAuthor
             )
 
             // envoyer en bdd
-            repo.insertPlant(plant)
+            repo.insertBook(book)
         }
     }
 

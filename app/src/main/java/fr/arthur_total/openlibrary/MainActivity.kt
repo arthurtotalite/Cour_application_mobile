@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection
+package fr.arthur_total.openlibrary
 
 import android.os.Bundle
 import android.widget.TextView
@@ -8,9 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import fr.arthur_total.naturecollection.fragments.AddPlantFragment
-import fr.arthur_total.naturecollection.fragments.CollectionFragment
-import fr.arthur_total.naturecollection.fragments.HomeFragment
+import fr.arthur_total.openlibrary.fragments.AddBookFragment
+import fr.arthur_total.openlibrary.fragments.CollectionFragment
+import fr.arthur_total.openlibrary.fragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(CollectionFragment(this), R.string.collection_page_title)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.add_plant_page -> {
-                    loadFragment(AddPlantFragment(this), R.string.add_plant_page_title)
+                R.id.add_book_page -> {
+                    loadFragment(AddBookFragment(this), R.string.add_book_page_title)
                     return@setOnNavigationItemSelectedListener true
                 }
 
@@ -52,14 +52,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         // charger notre repository
-        val  repo = PlantRepository()
+        val  repo = BookRepository()
 
         // Actualiser le titre de la page
         findViewById<TextView>(R.id.page_title).text = resources.getString(string)
 
-        //  mettre à jour la liste de plante
+        //  mettre à jour la liste de livre
         repo.updateData{
-            // injecter le fragment dans notre boite (fragment_container)
+            // injecter le fragment dans la boite
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, fragment)
             transaction.addToBackStack(null)

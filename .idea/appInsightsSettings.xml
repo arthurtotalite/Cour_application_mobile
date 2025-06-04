@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="fr.arthur_total.naturecollection" />
-                  <option name="mobileSdkAppId" value="1:864972166022:android:d25d72bc5d55d3f3771207" />
-                  <option name="projectId" value="project-nature-collection" />
-                  <option name="projectNumber" value="864972166022" />
+                  <option name="appId" value="fr.arthur_total.openlibrary" />
+                  <option name="mobileSdkAppId" value="1:1049037255968:android:5cb58d628e9967241ad345" />
+                  <option name="projectId" value="project-open-library" />
+                  <option name="projectNumber" value="1049037255968" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

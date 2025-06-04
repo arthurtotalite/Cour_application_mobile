@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection
+package fr.arthur_total.openlibrary
 
 import android.net.Uri
 import com.google.android.gms.tasks.Continuation
@@ -9,46 +9,45 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.databaseRef
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.downloadUri
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.plantlist
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.storageReference
-import java.net.URI
+import fr.arthur_total.openlibrary.BookRepository.Singleton.booklist
+import fr.arthur_total.openlibrary.BookRepository.Singleton.databaseRef
+import fr.arthur_total.openlibrary.BookRepository.Singleton.downloadUri
+import fr.arthur_total.openlibrary.BookRepository.Singleton.storageReference
 import java.util.UUID
 
-class PlantRepository {
+class BookRepository {
 
     object Singleton {
         // donner le lien pour acceder au bucket
-        private val BUCKET_URL: String = "gs://project-nature-collection.firebasestorage.app"
+        private val BUCKET_URL: String = "gs://project-open-library.firebasestorage.app"
 
         // se connecter à notre espace de stockage
         val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(BUCKET_URL)
 
-        // se connecter à la reference "plants"
-        val databaseRef = FirebaseDatabase.getInstance().getReference("plants")
+        // se connecter à la reference "books"
+        val databaseRef = FirebaseDatabase.getInstance().getReference("books")
 
-        // créer une liste qui va contenir les plantes
-        val plantlist = arrayListOf<PlantModel>()
+        // créer une liste qui va contenir les livres
+        val booklist = arrayListOf<BookModel>()
 
         // contenir le lien de l'image courante
         var downloadUri: Uri? = null
     }
     fun updateData(callback: ()-> Unit){
-        // absorber les données depuis la database -> liste de plantes
+        // absorber les données depuis la database -> liste de livres
         databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // retirer les anciennes plantes avant de faire la mise à jour
-                plantlist.clear()
+                // retirer les anciens livres avant de faire la mise à jour
+                booklist.clear()
                 // récolter la liste
                 for (ds in snapshot.children) {
-                    // construire un objet plante
-                    val plant = ds.getValue(PlantModel::class.java)
+                    // construire un objet livre
+                    val book = ds.getValue(BookModel::class.java)
 
-                    // vérifier que la plante n'est pas null
-                    if (plant != null) {
-                        // ajouter la plante à notre liste
-                        plantlist.add(plant)
+                    // vérifier que le livre n'est pas null
+                    if (book != null) {
+                        // ajouter le livre à notre liste
+                        booklist.add(book)
                     }
                 }
                 // actionner le callback
@@ -88,14 +87,14 @@ class PlantRepository {
             }
         }
     }
-    //mettre à jour un objet plante en bdd
-    fun updatePlant(plant: PlantModel) {
-        databaseRef.child(plant.id).setValue(plant)
+    //mettre à jour un objet livre en bdd
+    fun updateBook(book: BookModel) {
+        databaseRef.child(book.id).setValue(book)
     }
 
-    //insérer une nouvelle plante en bdd
-    fun insertPlant(plant: PlantModel) = databaseRef.child(plant.id).setValue(plant)
+    //insérer un nouveau livre en bdd
+    fun insertBook(book: BookModel) = databaseRef.child(book.id).setValue(book)
 
-    // supprimer une plante de la base
-    fun deletePlant(plant: PlantModel) = databaseRef.child(plant.id).removeValue()
+    // supprimer un livre de la base
+    fun deleteBook(book: BookModel) = databaseRef.child(book.id).removeValue()
 }

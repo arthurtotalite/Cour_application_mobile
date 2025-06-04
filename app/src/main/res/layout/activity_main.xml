@@ -5,51 +5,38 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/white">
-
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/DefaultTextStyle"
-        />
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/page_title"
-        style="@style/TitleTextStyle"
+        style="@style/SmallTitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/home_page_title"
-        app:layout_constraintStart_toStartOf="@+id/app_name"
-        app:layout_constraintTop_toBottomOf="@+id/app_name" />
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="60dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        app:backgroundTint="@color/green"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        app:itemTextColor="@drawable/bottom_nav_color"
-        app:itemIconTint="@drawable/bottom_nav_color"
+        android:layout_height="90dp"
         android:theme="@style/BottomNavigationTheme"
-        />
-
-
+        app:itemBackground="@android:color/transparent"
+        app:itemPaddingTop="0dp"
+        app:itemPaddingBottom="0dp"
+        app:backgroundTint="@color/white"
+        app:itemIconTint="@drawable/bottom_nav_color"
+        app:itemTextColor="@drawable/bottom_nav_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

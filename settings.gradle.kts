@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Nature Collection"
+rootProject.name = "OpenLibrary"
 include(":app")
  

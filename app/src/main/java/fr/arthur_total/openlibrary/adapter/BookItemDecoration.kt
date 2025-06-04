@@ -1,10 +1,10 @@
-package fr.arthur_total.naturecollection.adapter
+package fr.arthur_total.openlibrary.adapter
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class PlantItemDecoration : RecyclerView.ItemDecoration(){
+class BookItemDecoration : RecyclerView.ItemDecoration(){
 
     override fun getItemOffsets(
         outRect: Rect,

@@ -20,16 +20,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/plante1" />
+            android:src="@drawable/livre1" />
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/popup_plant_name"
+        android:id="@+id/popup_book_name"
         style="@style/TitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/default_margin"
-        android:text="@string/popup_plant_name"
+        android:text="@string/popup_book_name"
         app:layout_constraintBottom_toBottomOf="@+id/cardView2"
         app:layout_constraintStart_toEndOf="@+id/cardView2"
         app:layout_constraintTop_toTopOf="@+id/cardView2" />
@@ -42,90 +42,91 @@
         app:layout_constraintBottom_toBottomOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cardView2"
-        android:layout_marginRight="@dimen/item_margin"/>
+        android:layout_marginRight="@dimen/item_margin"
+        app:tint="@color/orange"/>
 
     <TextView
-        android:id="@+id/popup_plant_description_title"
+        android:id="@+id/popup_book_summary_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/popup_plant_description_title"
-        style="@style/TitleTextStyle"
+        android:text="@string/popup_book_summary_title"
+        style="@style/SmallTitleTextStyle"
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintStart_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
     <TextView
-        android:id="@+id/popup_plant_description_subtitle"
+        android:id="@+id/popup_book_summary_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/popup_plant_description_subtitle"
+        android:text="@string/popup_book_summary_subtitle"
         style="@style/DefaultTextStyle"
-        app:layout_constraintStart_toStartOf="@+id/popup_plant_description_title"
-        app:layout_constraintTop_toBottomOf="@+id/popup_plant_description_title" />
+        app:layout_constraintStart_toStartOf="@+id/popup_book_summary_title"
+        app:layout_constraintTop_toBottomOf="@+id/popup_book_summary_title" />
 
     <TextView
-        android:id="@+id/popup_plant_grow_title"
-        style="@style/TitleTextStyle"
+        android:id="@+id/popup_book_type_title"
+        style="@style/SmallTitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/popup_plant_grow_title"
+        android:text="@string/popup_book_type_title"
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/popup_plant_description_subtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_book_summary_subtitle" />
 
     <TextView
-        android:id="@+id/popup_plant_grow_subtitle"
+        android:id="@+id/popup_book_type_subtitle"
         style="@style/DefaultTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/popup_plant_grow_subtitle"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/popup_plant_grow_title" />
+        android:layout_marginLeft="@dimen/item_margin"
+        android:text="@string/popup_book_type_subtitle"
+        app:layout_constraintBottom_toBottomOf="@+id/popup_book_type_title"
+        app:layout_constraintStart_toEndOf="@+id/popup_book_type_title"
+        app:layout_constraintTop_toTopOf="@+id/popup_book_type_title" />
 
     <TextView
-        android:id="@+id/popup_plant_water_title"
-        style="@style/TitleTextStyle"
+        android:id="@+id/popup_book_author"
+        style="@style/SmallTitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/popup_plant_water_title"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/popup_plant_grow_subtitle" />
+        android:text="@string/popup_book_author"
+        app:layout_constraintStart_toStartOf="@+id/popup_book_name"
+        app:layout_constraintTop_toBottomOf="@+id/popup_book_name" />
 
-    <TextView
-        android:id="@+id/popup_plant_water_subtitle"
-        style="@style/DefaultTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/popup_plant_water_subtitle"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/popup_plant_water_title" />
 
     <View
         android:id="@+id/view_separation"
         android:layout_width="1dp"
         android:layout_height="50dp"
         android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popup_plant_water_subtitle" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/delete_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_trash"
+    <Button
+        android:id="@+id/confirm_button"
+        style="@style/SmallTitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/popup_book_read_button"
+        android:textColor="@color/white"
+        android:textSize="24dp"
         android:layout_marginRight="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/view_separation"
-        app:layout_constraintTop_toTopOf="@+id/view_separation" />
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_separation"
+        app:layout_constraintEnd_toStartOf="@+id/view_separation" />
 
     <ImageView
         android:id="@+id/like_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_unstar"
+        android:src="@drawable/ic_unlike"
         android:layout_marginLeft="50dp"
         app:layout_constraintStart_toEndOf="@+id/view_separation"
-        app:layout_constraintTop_toTopOf="@+id/view_separation" />
+        app:layout_constraintTop_toTopOf="@+id/view_separation"
+        app:tint="@color/orange"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

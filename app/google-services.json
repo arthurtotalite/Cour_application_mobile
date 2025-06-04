@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "864972166022",
-    "project_id": "project-nature-collection",
-    "storage_bucket": "project-nature-collection.firebasestorage.app"
+    "project_number": "1049037255968",
+    "project_id": "project-open-library",
+    "storage_bucket": "project-open-library.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:864972166022:android:d25d72bc5d55d3f3771207",
+        "mobilesdk_app_id": "1:1049037255968:android:5cb58d628e9967241ad345",
         "android_client_info": {
-          "package_name": "fr.arthur_total.naturecollection"
+          "package_name": "fr.arthur_total.openlibrary"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA2oT6t5lLqTLVfF6rTcP8gKEaxt-SaR-c"
+          "current_key": "AIzaSyDP8h93_mOQN1q_ST0gZdIUYX27NmR-NWg"
         }
       ],
       "services": {

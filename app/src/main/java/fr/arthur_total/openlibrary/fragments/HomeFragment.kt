@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection.fragments
+package fr.arthur_total.openlibrary.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import fr.arthur_total.naturecollection.MainActivity
-import fr.arthur_total.naturecollection.PlantModel
-import fr.arthur_total.naturecollection.R
-import fr.arthur_total.naturecollection.adapter.PlantAdapter
-import fr.arthur_total.naturecollection.adapter.PlantItemDecoration
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.plantlist
+import fr.arthur_total.openlibrary.BookRepository.Singleton.booklist
+import fr.arthur_total.openlibrary.MainActivity
+import fr.arthur_total.openlibrary.R
+import fr.arthur_total.openlibrary.adapter.BookAdapter
+import fr.arthur_total.openlibrary.adapter.BookItemDecoration
 
 class HomeFragment (
     private val context: MainActivity
@@ -22,12 +21,12 @@ class HomeFragment (
 
         // on récupère le premier recyclerview
         val horizontalRecyclerView = view?.findViewById<RecyclerView>(R.id.horizontal_recycler_view)
-        horizontalRecyclerView?.adapter = PlantAdapter(context,plantlist.filter { !it.liked } , R.layout.item_horizontal_plant)
+        horizontalRecyclerView?.adapter = BookAdapter(context, booklist.filter { !it.liked } , R.layout.item_horizontal_book)
 
         //on récupère le second recyclerview
         val verticalRecyclerView = view?.findViewById<RecyclerView>(R.id.vertical_recycler_view)
-        verticalRecyclerView?.adapter = PlantAdapter(context,plantlist , R.layout.item_vertical_plant)
-        verticalRecyclerView?.addItemDecoration(PlantItemDecoration())
+        verticalRecyclerView?.adapter = BookAdapter(context, booklist , R.layout.item_vertical_book)
+        verticalRecyclerView?.addItemDecoration(BookItemDecoration())
 
         return view
     }

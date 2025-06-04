@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection
+package fr.arthur_total.openlibrary
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

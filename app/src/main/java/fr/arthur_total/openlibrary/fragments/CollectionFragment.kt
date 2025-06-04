@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection.fragments
+package fr.arthur_total.openlibrary.fragments
 
 
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import fr.arthur_total.naturecollection.MainActivity
-import fr.arthur_total.naturecollection.PlantRepository.Singleton.plantlist
-import fr.arthur_total.naturecollection.R
-import fr.arthur_total.naturecollection.adapter.PlantAdapter
-import fr.arthur_total.naturecollection.adapter.PlantItemDecoration
+import fr.arthur_total.openlibrary.BookRepository.Singleton.booklist
+import fr.arthur_total.openlibrary.MainActivity
+import fr.arthur_total.openlibrary.R
+import fr.arthur_total.openlibrary.adapter.BookAdapter
+import fr.arthur_total.openlibrary.adapter.BookItemDecoration
 
 class CollectionFragment(
     private val context: MainActivity
@@ -27,9 +27,9 @@ class CollectionFragment(
 
         //récupérer ma view
         val collectionRecyclerView = view?.findViewById<RecyclerView>(R.id.collection_recycler_list)
-        collectionRecyclerView?.adapter = PlantAdapter(context, plantlist.filter { it.liked }, R.layout.item_vertical_plant)
+        collectionRecyclerView?.adapter = BookAdapter(context, booklist.filter { it.liked }, R.layout.item_vertical_book)
         collectionRecyclerView?.layoutManager = LinearLayoutManager(context)
-        collectionRecyclerView?.addItemDecoration(PlantItemDecoration())
+        collectionRecyclerView?.addItemDecoration(BookItemDecoration())
 
         return view
     }

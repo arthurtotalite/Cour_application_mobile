@@ -1,4 +1,4 @@
-package fr.arthur_total.naturecollection
+package fr.arthur_total.openlibrary
 
 import org.junit.Test
 
